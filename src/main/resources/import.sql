@@ -1,0 +1,10 @@
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Neymar Junior', '12345678910', 11000.00, '1992-05-02', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Ronaldo Nazario', '56745678911', 9000.00, '1985-04-12', 5);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Marta Sousa', '02245448910', 10000.00, '1990-11-20', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Larissa Oliveira', '16765679912', 8500.00, '1990-01-05', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Giovanni Messias', '07245628213', 1200.00, '1970-03-17', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Nathalia Albuquerque', '45845678914', 4300.00, '1987-07-15', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Alex Alves', '83345678915', 653.67, '1995-06-08', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Bruna Matos', '97345678910', 5430.55, '1991-05-02', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Kaio Jorge', '70345678910', 3500.00, '1999-03-08', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Maria Filomena', '42346698910', 2600.00, '1990-12-09', 2);
