@@ -5,6 +5,8 @@ import com.formacaojavaspring.desafiocrudclientes.dto.ValidationError;
 import com.formacaojavaspring.desafiocrudclientes.services.exceptions.DatabaseException;
 import com.formacaojavaspring.desafiocrudclientes.services.exceptions.ResourceNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
+
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -39,6 +41,13 @@ public class ControllerExceptionHandler {
         for(FieldError f : e.getBindingResult().getFieldErrors()){
             err.addError(f.getField(), f.getDefaultMessage());
         }
+        return ResponseEntity.status(status).body(err);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<CustomError> dataIntegrityViolation(DataIntegrityViolationException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        ValidationError err = new ValidationError(Instant.now(), status.value(), "CPF já cadastrado!", request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
 }
