@@ -18,7 +18,7 @@ public class ClientDTO {
     private String cpf;
     private Double income;
 
-    @PastOrPresent
+    @PastOrPresent(message = "Data de Nascimento inválida")
     private LocalDate birthDate;
     private Integer children;
 

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 
 import java.time.Instant;
+import java.time.format.DateTimeParseException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
@@ -48,6 +49,13 @@ public class ControllerExceptionHandler {
     public ResponseEntity<CustomError> dataIntegrityViolation(DataIntegrityViolationException e, HttpServletRequest request) {
         HttpStatus status = HttpStatus.BAD_REQUEST;
         ValidationError err = new ValidationError(Instant.now(), status.value(), "CPF já cadastrado!", request.getRequestURI());
+        return ResponseEntity.status(status).body(err);
+    }
+
+    @ExceptionHandler(DateTimeParseException.class)
+    public ResponseEntity<CustomError> dateTimeParse(DateTimeParseException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        ValidationError err = new ValidationError(Instant.now(), status.value(), "Data de Nascimento inválida", request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
 }
