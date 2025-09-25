@@ -4,16 +4,21 @@ package com.formacaojavaspring.desafiocrudclientes.dto;
 import com.formacaojavaspring.desafiocrudclientes.entities.Client;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
     private Long id;
 
+    @Size(min = 3, max = 80, message = "Nome precisa ter de 3 a 80 caracteres.")
     @NotBlank(message = "Campo Obrigatorio!")
     private String name;
     private String cpf;
     private Double income;
+
+    @PastOrPresent
     private LocalDate birthDate;
     private Integer children;
 
