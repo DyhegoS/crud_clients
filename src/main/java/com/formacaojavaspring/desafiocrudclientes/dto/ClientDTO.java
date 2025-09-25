@@ -3,10 +3,14 @@ package com.formacaojavaspring.desafiocrudclientes.dto;
 
 import com.formacaojavaspring.desafiocrudclientes.entities.Client;
 
+import jakarta.validation.constraints.NotBlank;
+
 import java.time.LocalDate;
 
 public class ClientDTO {
     private Long id;
+
+    @NotBlank(message = "Campo Obrigatorio!")
     private String name;
     private String cpf;
     private Double income;
